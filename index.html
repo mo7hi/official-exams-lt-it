@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LT-IT Official Exams Archive</title>
+  <meta name="description" content="Complete archive of official exams for the Technical License in Information Technology (LT-IT) from the Lebanese VTE system. Browse, search, and download exams from 2010 to 2024.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ══ Theme Tokens ══ */
+    :root {
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Geist Mono', 'SF Mono', monospace;
+      --font-ar: 'IBM Plex Sans Arabic', 'Outfit', sans-serif;
+      --transition-fast: 120ms ease;
+      --transition-base: 200ms ease;
+      --accent: #3b82f6;
+      --accent-dim: rgba(59, 130, 246, 0.12);
+      --accent-hover: #60a5fa;
+      --accent-border: rgba(59, 130, 246, 0.25);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0a0c;
+      --bg-secondary: #111114;
+      --bg-tertiary: #18181c;
+      --bg-hover: #1e1e24;
+      --bg-active: #252530;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-medium: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text-primary: #ededef;
+      --text-secondary: #9898a0;
+      --text-tertiary: #5e5e68;
+      --shadow-dropdown: 0 12px 40px rgba(0, 0, 0, 0.5);
+      --header-bg: rgba(10, 10, 12, 0.82);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8f8fa;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f0f0f4;
+      --bg-hover: #e8e8ee;
+      --bg-active: #dcdce4;
+      --border-subtle: rgba(0, 0, 0, 0.06);
+      --border-medium: rgba(0, 0, 0, 0.1);
+      --border-strong: rgba(0, 0, 0, 0.16);
+      --text-primary: #111118;
+      --text-secondary: #555560;
+      --text-tertiary: #8888a0;
+      --shadow-dropdown: 0 12px 40px rgba(0, 0, 0, 0.12);
+      --header-bg: rgba(248, 248, 250, 0.82);
+    }
+
+    /* ══ RTL ══ */
+    [dir="rtl"] { font-family: var(--font-ar); }
+    [dir="rtl"] .font-mono { font-family: var(--font-mono); direction: ltr; }
+    [dir="rtl"] .search-input { padding: 0 46px 0 16px; }
+    [dir="rtl"] .search-bar svg:first-of-type { left: auto; right: 16px; }
+    [dir="rtl"] .search-shortcut { right: auto; left: 14px; }
+    [dir="rtl"] .filter-dropdown { left: auto; right: 0; }
+    [dir="rtl"] .list-header span:last-child { text-align: left; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100dvh;
+      transition: background var(--transition-base), color var(--transition-base);
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 99px; }
+
+    .page-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* ══ Header ══ */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 64px; display: flex; align-items: center;
+      transition: background var(--transition-base);
+    }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px;
+    }
+
+    .site-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
+    .logo-mark {
+      width: 32px; height: 32px; background: var(--accent); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: white;
+    }
+    .logo-text { font-weight: 600; font-size: 15px; letter-spacing: -0.3px; }
+    .logo-text span { color: var(--text-tertiary); font-weight: 400; }
+
+    .header-controls { display: flex; align-items: center; gap: 6px; }
+
+    .header-btn {
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      height: 34px; padding: 0 12px; background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm); color: var(--text-secondary); font-family: var(--font-sans);
+      font-size: 13px; cursor: pointer; transition: all var(--transition-fast); white-space: nowrap;
+    }
+    .header-btn:hover { border-color: var(--border-medium); color: var(--text-primary); background: var(--bg-tertiary); }
+    .header-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .header-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .header-btn.icon-only { padding: 0; width: 34px; }
+
+    .lang-selector { position: relative; }
+    .lang-dropdown {
+      position: absolute; top: calc(100% + 6px); right: 0; min-width: 160px;
+      background: var(--bg-tertiary); border: 1px solid var(--border-medium); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-dropdown); padding: 4px; z-index: 60; display: none;
+    }
+    [dir="rtl"] .lang-dropdown { right: auto; left: 0; }
+    .lang-dropdown.open { display: block; }
+    .lang-option {
+      display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: var(--radius-sm);
+      font-size: 13px; color: var(--text-secondary); cursor: pointer; border: none;
+      background: none; width: 100%; text-align: left; font-family: var(--font-sans);
+      transition: all var(--transition-fast);
+    }
+    [dir="rtl"] .lang-option { text-align: right; font-family: var(--font-ar); }
+    .lang-option:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .lang-option.active { background: var(--accent-dim); color: var(--accent); }
+
+    /* ══ Hero ══ */
+    .hero { padding: 56px 0 40px; }
+    .hero h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: 10px; }
+    .hero-sub { font-size: 16px; color: var(--text-secondary); max-width: 540px; line-height: 1.6; font-weight: 300; }
+
+    /* ══ Stats Row ══ */
+    .stats-row { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+    .stat-item {
+      display: flex; flex-direction: column; gap: 2px; padding: 14px 18px;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); min-width: 120px; transition: background var(--transition-base), border-color var(--transition-base);
+    }
+    .stat-value { font-size: 22px; font-weight: 600; font-family: var(--font-mono); letter-spacing: -0.5px; }
+    .stat-label { font-size: 12px; color: var(--text-tertiary); }
+
+    /* ══ Search ══ */
+    .search-section { margin-bottom: 24px; }
+    .search-bar { position: relative; }
+    .search-bar > svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-tertiary); pointer-events: none; }
+    .search-input {
+      width: 100%; height: 48px; background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md); padding: 0 16px 0 46px; font-family: var(--font-sans);
+      font-size: 15px; color: var(--text-primary); outline: none;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+    }
+    .search-input::placeholder { color: var(--text-tertiary); }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+    .search-shortcut {
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary);
+      background: var(--bg-tertiary); border: 1px solid var(--border-subtle);
+      border-radius: 4px; padding: 2px 7px; pointer-events: none;
+    }
+
+    /* ══ Filters ══ */
+    .filters-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .filter-group { position: relative; }
+    .filter-btn {
+      display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm); color: var(--text-secondary); font-family: var(--font-sans);
+      font-size: 13px; cursor: pointer; transition: all var(--transition-fast); white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: var(--border-medium); color: var(--text-primary); background: var(--bg-tertiary); }
+    .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .filter-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .filter-dropdown {
+      position: absolute; top: calc(100% + 6px); left: 0; min-width: 220px;
+      background: var(--bg-tertiary); border: 1px solid var(--border-medium); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-dropdown); padding: 6px; z-index: 50; display: none;
+      max-height: 320px; overflow-y: auto;
+    }
+    .filter-dropdown.open { display: block; }
+    .filter-option {
+      display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+      border-radius: var(--radius-sm); font-size: 13px; color: var(--text-secondary);
+      cursor: pointer; border: none; background: none; width: 100%; text-align: left;
+      font-family: var(--font-sans); transition: all var(--transition-fast);
+    }
+    .filter-option:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .filter-option.selected { background: var(--accent-dim); color: var(--accent); }
+    .filter-check {
+      width: 16px; height: 16px; border: 1px solid var(--border-strong); border-radius: 3px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all var(--transition-fast);
+    }
+    .filter-option.selected .filter-check { background: var(--accent); border-color: var(--accent); }
+    .filter-option.selected .filter-check svg { opacity: 1; }
+    .filter-check svg { width: 10px; height: 10px; color: white; opacity: 0; }
+
+    .active-filters { display: flex; flex-wrap: wrap; gap: 6px; min-height: 4px; margin-bottom: 20px; }
+    .active-tag {
+      display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px;
+      background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: 99px;
+      font-size: 12px; color: var(--accent-hover); font-family: var(--font-mono);
+    }
+    .active-tag button {
+      background: none; border: none; color: inherit; cursor: pointer; padding: 0; margin-left: 2px;
+      display: flex; align-items: center; opacity: 0.6; transition: opacity var(--transition-fast);
+    }
+    .active-tag button:hover { opacity: 1; }
+    .clear-all {
+      background: none; border: none; color: var(--text-tertiary); font-size: 12px;
+      cursor: pointer; font-family: var(--font-sans); padding: 4px 8px; border-radius: 4px;
+      transition: all var(--transition-fast);
+    }
+    .clear-all:hover { color: var(--text-secondary); background: var(--bg-tertiary); }
+
+    /* ══ Results ══ */
+    .results-info {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    .results-count { font-size: 13px; color: var(--text-tertiary); font-family: var(--font-mono); }
+    .results-count strong { color: var(--text-secondary); font-weight: 500; }
+    .view-toggle { display: flex; gap: 2px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 2px; }
+    .view-btn {
+      display: flex; align-items: center; justify-content: center; width: 32px; height: 28px;
+      border: none; background: none; border-radius: 4px; color: var(--text-tertiary);
+      cursor: pointer; transition: all var(--transition-fast);
+    }
+    .view-btn.active { background: var(--bg-tertiary); color: var(--text-primary); }
+    .view-btn:hover:not(.active) { color: var(--text-secondary); }
+    .view-btn svg { width: 16px; height: 16px; }
+
+    .exams-container { min-height: 200px; }
+
+    /* Grid View */
+    .exams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+    .exam-card {
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+      padding: 16px; transition: all var(--transition-base); cursor: pointer; text-decoration: none;
+      color: var(--text-primary); display: flex; flex-direction: column; gap: 10px;
+    }
+    .exam-card:hover { border-color: var(--border-medium); background: var(--bg-tertiary); transform: translateY(-1px); }
+    .exam-card:active { transform: translateY(0) scale(0.995); }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .card-subject { font-size: 14px; font-weight: 500; line-height: 1.35; }
+    .card-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono); }
+    .card-meta-item { display: flex; align-items: center; gap: 4px; }
+    .card-meta-item svg { width: 13px; height: 13px; }
+    .card-languages { display: flex; gap: 4px; }
+    .lang-badge {
+      font-family: var(--font-mono); font-size: 10px; font-weight: 500; padding: 2px 6px;
+      border-radius: 3px; background: var(--bg-active); color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .card-dl {
+      display: flex; align-items: center; gap: 4px; font-size: 11px;
+      color: var(--accent); font-family: var(--font-mono); margin-top: auto;
+    }
+    .card-dl svg { width: 13px; height: 13px; }
+
+    /* List View */
+    .exams-list { display: flex; flex-direction: column; gap: 1px; background: var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+    .exam-row {
+      display: grid; grid-template-columns: 1fr 120px 100px 60px; align-items: center;
+      gap: 12px; padding: 12px 18px; background: var(--bg-secondary); text-decoration: none;
+      color: var(--text-primary); transition: background var(--transition-fast); cursor: pointer;
+    }
+    .exam-row:hover { background: var(--bg-tertiary); }
+    .row-subject { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .row-session { font-size: 13px; color: var(--text-secondary); font-family: var(--font-mono); }
+    .row-languages { display: flex; gap: 4px; }
+    .list-header {
+      display: grid; grid-template-columns: 1fr 120px 100px 60px; gap: 12px;
+      padding: 10px 18px; background: var(--bg-tertiary); font-size: 11px; font-weight: 500;
+      color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.6px; font-family: var(--font-mono);
+    }
+
+    /* Year Groups */
+    .year-group { margin-bottom: 28px; }
+    .year-group-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .year-group-header h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; font-family: var(--font-mono); white-space: nowrap; }
+    .year-group-count { font-size: 11px; color: var(--text-tertiary); font-family: var(--font-mono); background: var(--bg-tertiary); padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+    .year-group-line { flex: 1; height: 1px; background: var(--border-subtle); }
+
+    /* Empty */
+    .empty-state { text-align: center; padding: 80px 24px; }
+    .empty-state svg { color: var(--text-tertiary); margin-bottom: 16px; opacity: 0.5; }
+    .empty-state h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--text-secondary); }
+    .empty-state p { font-size: 14px; color: var(--text-tertiary); max-width: 360px; margin: 0 auto; }
+
+    /* ══ Subjects ══ */
+    .section-divider { padding: 40px 0 28px; }
+    .section-divider h2 { font-size: 19px; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 16px; }
+    .subject-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+    .subject-card {
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+      padding: 14px; cursor: pointer; transition: all var(--transition-base);
+    }
+    .subject-card:hover { border-color: var(--border-medium); background: var(--bg-tertiary); }
+    .subject-card.selected { border-color: var(--accent); background: var(--accent-dim); }
+    .subject-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .subject-card.selected .subject-name { color: var(--accent-hover); }
+    .subject-years { font-size: 12px; color: var(--text-tertiary); font-family: var(--font-mono); }
+    .subject-card.selected .subject-years { color: var(--accent); }
+
+    /* ══ Timeline ══ */
+    .timeline { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+    .timeline-card {
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+      padding: 14px; cursor: pointer; transition: all var(--transition-base);
+    }
+    .timeline-card:hover { border-color: var(--border-medium); background: var(--bg-tertiary); }
+    .timeline-card.selected { border-color: var(--accent); background: var(--accent-dim); }
+    .timeline-year { font-size: 20px; font-weight: 600; font-family: var(--font-mono); letter-spacing: -0.5px; }
+    .timeline-card.selected .timeline-year { color: var(--accent-hover); }
+    .timeline-sessions { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+    .timeline-card.selected .timeline-sessions { color: var(--accent); }
+    .timeline-file-count { font-size: 11px; color: var(--text-tertiary); font-family: var(--font-mono); margin-top: 4px; }
+
+    /* ══ Footer ══ */
+    .site-footer { padding: 28px 0; border-top: 1px solid var(--border-subtle); margin-top: 40px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--text-tertiary); }
+
+    /* ══ Back to top ══ */
+    .back-to-top {
+      position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px;
+      background: var(--bg-tertiary); border: 1px solid var(--border-medium); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      color: var(--text-secondary); opacity: 0; pointer-events: none;
+      transition: opacity var(--transition-base); z-index: 50;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .back-to-top svg { width: 18px; height: 18px; }
+    [dir="rtl"] .back-to-top { right: auto; left: 24px; }
+
+    /* ══ Responsive ══ */
+    @media (max-width: 768px) {
+      .hero { padding: 32px 0 24px; }
+      .hero h1 { font-size: 24px; }
+      .stats-row { gap: 10px; }
+      .stat-item { min-width: 90px; padding: 10px 14px; }
+      .stat-value { font-size: 18px; }
+      .exam-row { grid-template-columns: 1fr 80px; }
+      .exam-row .row-languages, .exam-row .row-actions { display: none; }
+      .list-header { grid-template-columns: 1fr 80px; }
+      .list-header span:nth-child(n+3) { display: none; }
+      .exams-grid { grid-template-columns: 1fr; }
+      .subject-grid { grid-template-columns: 1fr; }
+      .search-shortcut { display: none; }
+      .header-btn .btn-label { display: none; }
+      .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .exam-card:hover { transform: none; }
+      .exam-card:active { transform: none; }
+    }
+
+    /* ══ PDF Viewer Modal ══ */
+    .pdf-viewer-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .pdf-viewer-overlay.open { opacity: 1; pointer-events: auto; }
+    .pdf-viewer-modal {
+      width: 94vw; height: 92vh; max-width: 1400px;
+      background: var(--bg-secondary); border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg); display: flex; flex-direction: column;
+      overflow: hidden; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      transform: scale(0.96) translateY(10px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pdf-viewer-overlay.open .pdf-viewer-modal { transform: scale(1) translateY(0); }
+    .pdf-viewer-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px; gap: 12px; min-height: 52px;
+      border-bottom: 1px solid var(--border-subtle); background: var(--bg-tertiary); flex-shrink: 0;
+    }
+    .pdf-viewer-title {
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1;
+      font-family: var(--font-mono);
+    }
+    .pdf-viewer-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .pdf-viewer-actions .header-btn { text-decoration: none; }
+    .pdf-viewer-content { flex: 1; position: relative; overflow: hidden; }
+    .pdf-viewer-content iframe { width: 100%; height: 100%; border: none; background: var(--bg-primary); }
+
+    /* ══ Card & Row Actions ══ */
+    .card-actions { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .card-view { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--accent); font-family: var(--font-mono); }
+    .card-view svg { width: 14px; height: 14px; }
+    .card-download {
+      display: flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: var(--radius-sm);
+      color: var(--text-tertiary); transition: all var(--transition-fast); text-decoration: none;
+    }
+    .card-download:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .card-download svg { width: 14px; height: 14px; }
+    .row-actions { display: flex; align-items: center; gap: 2px; justify-content: center; }
+    .row-view-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: var(--radius-sm);
+      color: var(--accent); cursor: pointer; transition: all var(--transition-fast);
+    }
+    .row-view-btn:hover { background: var(--accent-dim); }
+    .row-view-btn svg { width: 15px; height: 15px; }
+    .row-dl-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: var(--radius-sm);
+      color: var(--text-tertiary); transition: all var(--transition-fast); text-decoration: none;
+    }
+    .row-dl-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .row-dl-btn svg { width: 15px; height: 15px; }
+
+    /* ══ Entry Animations ══ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .stat-item { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .stat-item:nth-child(1) { animation-delay: 0.05s; }
+      .stat-item:nth-child(2) { animation-delay: 0.1s; }
+      .stat-item:nth-child(3) { animation-delay: 0.15s; }
+      .stat-item:nth-child(4) { animation-delay: 0.2s; }
+      .hero h1 { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+      .hero-sub { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both; }
+    }
+
+    @media (max-width: 768px) {
+      .pdf-viewer-modal { width: 100vw; height: 100dvh; max-width: none; border-radius: 0; }
+      .pdf-viewer-actions .btn-label { display: none; }
+    }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="site-logo" onclick="return false">
+        <div class="logo-mark">LT</div>
+        <div class="logo-text" data-i18n="logo"></div>
+      </a>
+      <div class="header-controls">
+        <!-- Theme Toggle -->
+        <button class="header-btn icon-only" id="theme-toggle" aria-label="Toggle theme">
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button class="header-btn" id="lang-toggle-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="btn-label" id="lang-label">EN</span>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown">
+            <button class="lang-option active" data-lang="en">English</button>
+            <button class="lang-option" data-lang="fr">Fran&ccedil;ais</button>
+            <button class="lang-option" data-lang="ar" style="font-family:var(--font-ar)">العربية</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <section class="hero">
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="hero-sub" data-i18n="heroSub"></p>
+      <div class="stats-row">
+        <div class="stat-item"><div class="stat-value font-mono">267</div><div class="stat-label" data-i18n="statFiles"></div></div>
+        <div class="stat-item"><div class="stat-value font-mono">23</div><div class="stat-label" data-i18n="statSessions"></div></div>
+        <div class="stat-item"><div class="stat-value font-mono">14</div><div class="stat-label" data-i18n="statSubjects"></div></div>
+        <div class="stat-item"><div class="stat-value font-mono">2010-2024</div><div class="stat-label" data-i18n="statSpan"></div></div>
+      </div>
+    </section>
+
+    <section class="search-section" id="search-section">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="search-input" id="search-input" data-i18n-placeholder="searchPlaceholder" autocomplete="off" spellcheck="false">
+        <span class="search-shortcut">/</span>
+      </div>
+    </section>
+
+    <div class="filters-row" id="filters-row">
+      <div class="filter-group"><button class="filter-btn" id="filter-year-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span data-i18n="filterYear"></span></button><div class="filter-dropdown" id="filter-year-dropdown"></div></div>
+      <div class="filter-group"><button class="filter-btn" id="filter-subject-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-i18n="filterSubject"></span></button><div class="filter-dropdown" id="filter-subject-dropdown"></div></div>
+      <div class="filter-group"><button class="filter-btn" id="filter-lang-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-i18n="filterLang"></span></button><div class="filter-dropdown" id="filter-lang-dropdown"></div></div>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="results-info">
+      <div class="results-count" id="results-count"></div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="view-grid-btn" aria-label="Grid view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></button>
+        <button class="view-btn" id="view-list-btn" aria-label="List view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+      </div>
+    </div>
+
+    <div class="exams-container" id="exams-container"></div>
+
+    <section class="section-divider" id="subjects-section">
+      <h2 data-i18n="subjectsTitle"></h2>
+      <div class="subject-grid" id="subject-grid"></div>
+    </section>
+
+    <section class="section-divider" id="timeline-section">
+      <h2 data-i18n="timelineTitle"></h2>
+      <div class="timeline" id="timeline-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-container">
+      <div class="footer-inner">
+        <span data-i18n="footerLeft"></span>
+        <span data-i18n="footerRight"></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- PDF Viewer Modal -->
+  <div class="pdf-viewer-overlay" id="pdf-viewer-overlay">
+    <div class="pdf-viewer-modal">
+      <div class="pdf-viewer-toolbar">
+        <div class="pdf-viewer-title" id="pdf-viewer-title"></div>
+        <div class="pdf-viewer-actions">
+          <a class="header-btn" id="pdf-open-tab-btn" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span class="btn-label" data-i18n="openNewTab"></span>
+          </a>
+          <a class="header-btn" id="pdf-download-btn" href="#" download target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="btn-label" data-i18n="downloadPdf"></span>
+          </a>
+          <button class="header-btn icon-only" id="pdf-close-btn" aria-label="Close viewer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="pdf-viewer-content">
+        <iframe id="pdf-viewer-iframe" title="PDF Viewer"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+// ════════════════════════════════════════════════
+//  i18n STRINGS
+// ════════════════════════════════════════════════
+const I18N = {
+  en: {
+    logo: 'LT-IT Exams <span>Archive</span>',
+    heroTitle: "Official Exams Archive",
+    heroSub: "Browse and download official LT Information Technology exams from the Lebanese VTE system. Every session from 2010 to 2024.",
+    statFiles: "PDF files", statSessions: "Sessions", statSubjects: "Subjects", statSpan: "Year span",
+    searchPlaceholder: "Search by subject, year, language...",
+    filterYear: "Year", filterSubject: "Subject", filterLang: "Language",
+    showing: "Showing", of: "of", exams: "exams",
+    session: "Session", download: "PDF", files: "files",
+    subjectsTitle: "Subjects", timelineTitle: "Timeline",
+    footerLeft: "LT-IT Official Exams Archive", footerRight: "Lebanese Vocational & Technical Education",
+    emptyTitle: "No exams found", emptySub: "Try adjusting your search or filters.",
+    clearAll: "Clear all",
+    listSubject: "Subject", listSession: "Session", listLang: "Language", listDl: "File",
+    viewPdf: "View", downloadPdf: "Download", openNewTab: "Open in new tab",
+  },
+  fr: {
+    logo: 'LT-IT Examens <span>Archive</span>',
+    heroTitle: "Archive des Examens Officiels",
+    heroSub: "Parcourez et t\u00e9l\u00e9chargez les examens officiels LT Informatique du syst\u00e8me VTE libanais. Toutes les sessions de 2010 \u00e0 2024.",
+    statFiles: "Fichiers PDF", statSessions: "Sessions", statSubjects: "Mati\u00e8res", statSpan: "P\u00e9riode",
+    searchPlaceholder: "Rechercher par mati\u00e8re, ann\u00e9e, langue...",
+    filterYear: "Ann\u00e9e", filterSubject: "Mati\u00e8re", filterLang: "Langue",
+    showing: "Affichage", of: "sur", exams: "examens",
+    session: "Session", download: "PDF", files: "fichiers",
+    subjectsTitle: "Mati\u00e8res", timelineTitle: "Chronologie",
+    footerLeft: "Archive des Examens Officiels LT-IT", footerRight: "Enseignement Professionnel et Technique Libanais",
+    emptyTitle: "Aucun examen trouv\u00e9", emptySub: "Essayez de modifier votre recherche ou vos filtres.",
+    clearAll: "Tout effacer",
+    listSubject: "Mati\u00e8re", listSession: "Session", listLang: "Langue", listDl: "Fichier",
+    viewPdf: "Voir", downloadPdf: "T\u00e9l\u00e9charger", openNewTab: "Nouvel onglet",
+  },
+  ar: {
+    logo: 'أرشيف <span>امتحانات LT-IT</span>',
+    heroTitle: "أرشيف الامتحانات الرسمية",
+    heroSub: "تصفّح وحمّل الامتحانات الرسمية للإجازة الفنية في المعلوماتية من نظام التعليم المهني والتقني اللبناني. جميع الدورات من 2010 إلى 2024.",
+    statFiles: "ملف PDF", statSessions: "دورة", statSubjects: "مادة", statSpan: "الفترة الزمنية",
+    searchPlaceholder: "ابحث بالمادة، السنة، اللغة...",
+    filterYear: "السنة", filterSubject: "المادة", filterLang: "اللغة",
+    showing: "عرض", of: "من", exams: "امتحان",
+    session: "الدورة", download: "PDF", files: "ملف",
+    subjectsTitle: "المواد", timelineTitle: "الجدول الزمني",
+    footerLeft: "أرشيف الامتحانات الرسمية LT-IT", footerRight: "التعليم المهني والتقني اللبناني",
+    emptyTitle: "لم يتم العثور على امتحانات", emptySub: "حاول تعديل البحث أو الفلاتر.",
+    clearAll: "مسح الكل",
+    listSubject: "المادة", listSession: "الدورة", listLang: "اللغة", listDl: "ملف",
+    viewPdf: "عرض", downloadPdf: "تحميل", openNewTab: "علامة تبويب جديدة",
+  }
+};
+
+// Subject translations from dictionary.txt
+const SUBJECT_I18N = {
+  "Adv-Database":                { en: "Advanced Database",            fr: "Database Avanc\u00e9",                        ar: "قواعد المعطيات المتطورة" },
+  "Adv-JAVA":                    { en: "Advanced Java",                fr: "Java Avanc\u00e9",                            ar: "لغة Java المتطورة" },
+  "Decision Systems":            { en: "Decision Systems",             fr: "Syst\u00e8me D\u00e9cisionnel",               ar: "أنظمة اتخاذ القرار" },
+  "UML":                         { en: "UML",                          fr: "UML",                                         ar: "UML" },
+  "XML":                         { en: "XML",                          fr: "XML",                                         ar: "XML" },
+  "Law":                         { en: "Law",                          fr: "Droit",                                       ar: "القانون" },
+  "JS":                          { en: "JavaScript",                   fr: "JavaScript",                                  ar: "JavaScript" },
+  "SQL-PHP":                     { en: "SQL & PHP",                    fr: "SQL & PHP",                                   ar: "SQL & PHP" },
+  "JS-SQL-PHP":                  { en: "JavaScript, SQL & PHP",        fr: "JavaScript, SQL & PHP",                       ar: "JavaScript, SQL & PHP" },
+  "Client-Server":               { en: "Client-Server Architecture",   fr: "Architecture Client-Serveur",                 ar: "نظام هيكلية المستخدم / الموزع" },
+  "Client-Server Cybersecurity": { en: "Client-Server & Cybersecurity",fr: "Client-Serveur & S\u00e9curit\u00e9",         ar: "حماية الشبكات ونظام هيكلية المستخدم / الموزع" },
+  "Smartphone Apps":             { en: "Smartphone Applications",      fr: "Applications pour Smartphones",               ar: "تطبيقات الهواتف الذكية" },
+  "English-IT":                  { en: "English for IT",               fr: "Lexique",                                     ar: "تقنيات المعلوماتية باللغة الانكليزية" },
+  "Software Engineering":        { en: "Software Engineering",         fr: "Ing\u00e9nierie des Logiciels",               ar: "الهندسة البرامجية" },
+};
+
+const SUBJECT_YEARS = {
+  "Adv-Database": "2010-2024", "Adv-JAVA": "2010-2024", "Decision Systems": "2010-2024",
+  "UML": "2010-2024", "XML": "2010-2024", "Law": "2010-2015, 2020-2024",
+  "JS": "2010-2020", "SQL-PHP": "2017-2020", "JS-SQL-PHP": "2020-2024",
+  "Client-Server": "2010-2018", "Client-Server Cybersecurity": "2020-2024",
+  "Smartphone Apps": "2017-2024", "English-IT": "2010-2015", "Software Engineering": "2010-2015",
+};
+
+// ════════════════════════════════════════════════
+//  EXAM DATA (all 267 PDFs)
+// ════════════════════════════════════════════════
+const E = (s,y,n,l,f) => ({subject:s,year:y,session:n,languages:l,filename:f});
+const EXAMS_DATA = [
+  // 2010-1
+  E("Adv-Database",2010,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2010,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2010,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2010,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2010,1,["En"],"English-IT.pdf"),E("JS",2010,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2010,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2010,1,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2010,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2010,1,["En"],"XML En.pdf"),E("XML",2010,1,["Fr"],"XML Fr.pdf"),
+  // 2010-2
+  E("Adv-Database",2010,2,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2010,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2010,2,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2010,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2010,2,["En"],"English-IT.pdf"),E("JS",2010,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2010,2,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2010,2,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2010,2,["En","Fr"],"UML En-Fr.pdf"),E("XML",2010,2,["En"],"XML En.pdf"),E("XML",2010,2,["Fr"],"XML Fr.pdf"),
+  // 2011-1
+  E("Adv-Database",2011,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2011,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2011,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2011,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2011,1,["En"],"English-IT.pdf"),E("JS",2011,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2011,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2011,1,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2011,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2011,1,["En"],"XML En.pdf"),E("XML",2011,1,["Fr"],"XML Fr.pdf"),
+  // 2011-2
+  E("Adv-Database",2011,2,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2011,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2011,2,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2011,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2011,2,["En"],"English-IT.pdf"),E("JS",2011,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2011,2,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2011,2,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2011,2,["En","Fr"],"UML En-Fr.pdf"),E("XML",2011,2,["En"],"XML En.pdf"),E("XML",2011,2,["Fr"],"XML Fr.pdf"),
+  // 2012-1
+  E("Adv-Database",2012,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2012,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2012,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2012,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2012,1,["En"],"English-IT.pdf"),E("JS",2012,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2012,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2012,1,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2012,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2012,1,["En"],"XML En.pdf"),E("XML",2012,1,["Fr"],"XML Fr.pdf"),
+  // 2012-2
+  E("Adv-Database",2012,2,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2012,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2012,2,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2012,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2012,2,["En"],"English-IT.pdf"),E("JS",2012,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2012,2,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2012,2,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2012,2,["En"],"UML En.pdf"),E("UML",2012,2,["Fr"],"UML Fr.pdf"),
+  E("XML",2012,2,["En"],"XML En.pdf"),E("XML",2012,2,["Fr"],"XML Fr.pdf"),
+  // 2013-1
+  E("Adv-Database",2013,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2013,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2013,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2013,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2013,1,["En"],"English-IT.pdf"),E("JS",2013,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2013,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2013,1,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2013,1,["En"],"UML En.pdf"),E("UML",2013,1,["Fr"],"UML Fr.pdf"),
+  E("XML",2013,1,["En"],"XML En.pdf"),E("XML",2013,1,["Fr"],"XML Fr.pdf"),
+  // 2014-1
+  E("Adv-Database",2014,1,["En","Fr"],"Adv-Database En-Fr.pdf"),
+  E("Adv-JAVA",2014,1,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2014,1,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server",2014,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2014,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2014,1,["En"],"English-IT.pdf"),
+  E("JS",2014,1,["En"],"JS En.pdf"),E("JS",2014,1,["Fr"],"JS Fr.pdf"),
+  E("Law",2014,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),
+  E("Software Engineering",2014,1,["En"],"Software Engineering En.pdf"),E("Software Engineering",2014,1,["Fr"],"Software Engineering Fr.pdf"),
+  E("UML",2014,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2014,1,["En"],"XML En.pdf"),E("XML",2014,1,["Fr"],"XML Fr.pdf"),
+  // 2014-2
+  E("Adv-Database",2014,2,["En","Fr"],"Adv-Database En-Fr.pdf"),
+  E("Adv-JAVA",2014,2,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2014,2,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server",2014,2,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2014,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2014,2,["En"],"English-IT.pdf"),E("JS",2014,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2014,2,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2014,2,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2014,2,["En","Fr"],"UML En-Fr.pdf"),E("XML",2014,2,["En"],"XML En.pdf"),E("XML",2014,2,["Fr"],"XML Fr.pdf"),
+  // 2015-1
+  E("Adv-Database",2015,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2015,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2015,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2015,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("English-IT",2015,1,["En"],"English-IT.pdf"),E("JS",2015,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2015,1,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2015,1,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2015,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2015,1,["En"],"XML En.pdf"),E("XML",2015,1,["Fr"],"XML Fr.pdf"),
+  // 2015-2
+  E("Adv-Database",2015,2,["En"],"Adv-Database En.pdf"),E("Adv-Database",2015,2,["Fr"],"Adv-Database Fr.pdf"),
+  E("Adv-JAVA",2015,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),E("Client-Server",2015,2,["En","Fr"],"Client-Server En-Fr.pdf"),
+  E("Decision Systems",2015,2,["En"],"Decision Systems En.pdf"),E("Decision Systems",2015,2,["Fr"],"Decision Systems Fr.pdf"),
+  E("English-IT",2015,2,["En"],"English-IT.pdf"),E("JS",2015,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Law",2015,2,["Ar","En","Fr"],"Law Ar-En-Fr.pdf"),E("Software Engineering",2015,2,["En","Fr"],"Software Engineering En-Fr.pdf"),
+  E("UML",2015,2,["En"],"UML En.pdf"),E("UML",2015,2,["Fr"],"UML Fr.pdf"),E("XML",2015,2,["Fr"],"XML Fr.pdf"),
+  // 2017-1
+  E("Adv-Database",2017,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2017,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2017,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2017,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS",2017,1,["En","Fr"],"JS En-Fr.pdf"),
+  E("Smartphone Apps",2017,1,["En"],"Smartphone Apps En.pdf"),E("Smartphone Apps",2017,1,["Fr"],"Smartphone Apps Fr.pdf"),
+  E("SQL-PHP",2017,1,["En","Fr"],"SQL-PHP En-Fr.pdf"),
+  E("UML",2017,1,["En"],"UML En.pdf"),E("UML",2017,1,["Fr"],"UML Fr.pdf"),
+  E("XML",2017,1,["En"],"XML En.pdf"),E("XML",2017,1,["Fr"],"XML Fr.pdf"),
+  // 2017-2
+  E("Adv-Database",2017,2,["En","Fr"],"Adv-Database En-Fr.pdf"),
+  E("Adv-JAVA",2017,2,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2017,2,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server",2017,2,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2017,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS",2017,2,["En","Fr"],"JS En-Fr.pdf"),E("Smartphone Apps",2017,2,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("SQL-PHP",2017,2,["En","Fr"],"SQL-PHP En-Fr.pdf"),
+  E("UML",2017,2,["Ar"],"UML Ar.pdf"),E("UML",2017,2,["En"],"UML En.pdf"),E("UML",2017,2,["Fr"],"UML Fr.pdf"),
+  E("XML",2017,2,["En"],"XML En.pdf"),E("XML",2017,2,["Fr"],"XML Fr.pdf"),
+  // 2018-1
+  E("Adv-Database",2018,1,["En","Fr"],"Adv-Database En-Fr.pdf"),
+  E("Adv-JAVA",2018,1,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2018,1,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server",2018,1,["En","Fr"],"Client-Server En-Fr.pdf"),E("Decision Systems",2018,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS",2018,1,["En","Fr"],"JS En-Fr.pdf"),E("Smartphone Apps",2018,1,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("SQL-PHP",2018,1,["En","Fr"],"SQL-PHP En-Fr.pdf"),
+  E("UML",2018,1,["En"],"UML En.pdf"),E("UML",2018,1,["Fr"],"UML Fr.pdf"),
+  E("XML",2018,1,["En"],"XML En.pdf"),E("XML",2018,1,["Fr"],"XML Fr.pdf"),
+  // 2018-2
+  E("Adv-Database",2018,2,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2018,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server",2018,2,["En"],"Client-Server En.pdf"),E("Client-Server",2018,2,["Fr"],"Client-Server Fr.pdf"),
+  E("Decision Systems",2018,2,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS",2018,2,["En","Fr"],"JS En-Fr.pdf"),
+  E("Smartphone Apps",2018,2,["En"],"Smartphone Apps En.pdf"),E("Smartphone Apps",2018,2,["Fr"],"Smartphone Apps Fr.pdf"),
+  E("SQL-PHP",2018,2,["En","Fr"],"SQL-PHP En-Fr.pdf"),E("UML",2018,2,["En","Fr"],"UML En-Fr.pdf"),
+  E("XML",2018,2,["En"],"XML En.pdf"),E("XML",2018,2,["Fr"],"XML Fr.pdf"),
+  // 2020-1
+  E("Adv-Database",2020,1,["En"],"Adv-Database En.pdf"),E("Adv-Database",2020,1,["Fr"],"Adv-Database Fr.pdf"),
+  E("Adv-JAVA",2020,1,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server Cybersecurity",2020,1,["En"],"Client-Server Cybersecurity En.pdf"),
+  E("Client-Server Cybersecurity",2020,1,["Fr"],"Client-Server Cybersecurity Fr.pdf"),
+  E("Decision Systems",2020,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS",2020,1,["Fr"],"JS Fr.pdf"),E("JS-SQL-PHP",2020,1,["Fr"],"JS-SQL-PHP Fr.pdf"),
+  E("Law",2020,1,["Ar"],"Law Ar.pdf"),E("SQL-PHP",2020,1,["En"],"SQL-PHP En.pdf"),
+  E("Smartphone Apps",2020,1,["En"],"Smartphone Apps En.pdf"),
+  E("UML",2020,1,["Fr"],"UML Fr.pdf"),E("XML",2020,1,["En"],"XML En.pdf"),
+  // 2021-1
+  E("Adv-Database",2021,1,["En"],"Adv-Database En.pdf"),E("Adv-Database",2021,1,["Fr"],"Adv-Database Fr.pdf"),
+  E("Adv-JAVA",2021,1,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2021,1,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server Cybersecurity",2021,1,["En"],"Client-Server Cybersecurity En.pdf"),
+  E("Client-Server Cybersecurity",2021,1,["Fr"],"Client-Server Cybersecurity Fr.pdf"),
+  E("Decision Systems",2021,1,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS-SQL-PHP",2021,1,["En"],"JS-SQL-PHP En.pdf"),E("JS-SQL-PHP",2021,1,["Fr"],"JS-SQL-PHP Fr.pdf"),
+  E("Law",2021,1,["Ar"],"Law Ar.pdf"),
+  E("Smartphone Apps",2021,1,["En"],"Smartphone Apps En.pdf"),E("Smartphone Apps",2021,1,["Fr"],"Smartphone Apps Fr.pdf"),
+  E("UML",2021,1,["En"],"UML En.pdf"),E("UML",2021,1,["Fr"],"UML Fr.pdf"),
+  E("XML",2021,1,["En"],"XML En.pdf"),E("XML",2021,1,["Fr"],"XML Fr.pdf"),
+  // 2021-2
+  E("Adv-Database",2021,2,["En"],"Adv-Database En.pdf"),E("Adv-Database",2021,2,["Fr"],"Adv-Database Fr.pdf"),
+  E("Adv-JAVA",2021,2,["En"],"Adv-JAVA En.pdf"),E("Adv-JAVA",2021,2,["Fr"],"Adv-JAVA Fr.pdf"),
+  E("Client-Server Cybersecurity",2021,2,["En"],"Client-Server Cybersecurity En.pdf"),
+  E("Client-Server Cybersecurity",2021,2,["Fr"],"Client-Server Cybersecurity Fr.pdf"),
+  E("Decision Systems",2021,2,["En","Fr"],"Decision Systems En-Fr.pdf"),
+  E("JS-SQL-PHP",2021,2,["En"],"JS-SQL-PHP En.pdf"),E("JS-SQL-PHP",2021,2,["Fr"],"JS-SQL-PHP Fr.pdf"),
+  E("Law",2021,2,["Ar"],"Law Ar.pdf"),
+  E("Smartphone Apps",2021,2,["En"],"Smartphone Apps En.pdf"),E("Smartphone Apps",2021,2,["Fr"],"Smartphone Apps Fr.pdf"),
+  E("UML",2021,2,["En"],"UML En.pdf"),E("UML",2021,2,["Fr"],"UML Fr.pdf"),
+  E("XML",2021,2,["En"],"XML En.pdf"),E("XML",2021,2,["Fr"],"XML Fr.pdf"),
+  // 2022-1
+  E("Adv-Database",2022,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2022,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server Cybersecurity",2022,1,["En","Fr"],"Client-Server Cybersecurity En-Fr.pdf"),
+  E("Decision Systems",2022,1,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS-SQL-PHP",2022,1,["En","Fr"],"JS-SQL-PHP En-Fr.pdf"),
+  E("Law",2022,1,["Ar"],"Law Ar.pdf"),E("Smartphone Apps",2022,1,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("UML",2022,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2022,1,["En","Fr"],"XML En-Fr.pdf"),
+  // 2022-2
+  E("Adv-Database",2022,2,["En","Fr"],"Adv-Database En-Fr.pdf"),
+  E("Client-Server Cybersecurity",2022,2,["En","Fr"],"Client-Server Cybersecurity En-Fr.pdf"),
+  E("Decision Systems",2022,2,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS-SQL-PHP",2022,2,["En","Fr"],"JS-SQL-PHP En-Fr.pdf"),
+  E("Law",2022,2,["Ar"],"Law Ar.pdf"),E("Smartphone Apps",2022,2,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("UML",2022,2,["En","Fr"],"UML En-Fr.pdf"),E("XML",2022,2,["En","Fr"],"XML En-Fr.pdf"),
+  // 2023-1
+  E("Adv-Database",2023,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2023,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server Cybersecurity",2023,1,["En","Fr"],"Client-Server Cybersecurity En-Fr.pdf"),
+  E("Decision Systems",2023,1,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS-SQL-PHP",2023,1,["En","Fr"],"JS-SQL-PHP En-Fr.pdf"),
+  E("Law",2023,1,["Ar"],"Law Ar.pdf"),E("Smartphone Apps",2023,1,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("UML",2023,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2023,1,["En","Fr"],"XML En-Fr.pdf"),
+  // 2023-2
+  E("Adv-Database",2023,2,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2023,2,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server Cybersecurity",2023,2,["En","Fr"],"Client-Server Cybersecurity En-Fr.pdf"),
+  E("Decision Systems",2023,2,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS-SQL-PHP",2023,2,["En","Fr"],"JS-SQL-PHP En-Fr.pdf"),
+  E("Law",2023,2,["Ar"],"Law Ar.pdf"),E("Smartphone Apps",2023,2,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("UML",2023,2,["En","Fr"],"UML En-Fr.pdf"),E("XML",2023,2,["En","Fr"],"XML En-Fr.pdf"),
+  // 2024-1
+  E("Adv-Database",2024,1,["En","Fr"],"Adv-Database En-Fr.pdf"),E("Adv-JAVA",2024,1,["En","Fr"],"Adv-JAVA En-Fr.pdf"),
+  E("Client-Server Cybersecurity",2024,1,["En","Fr"],"Client-Server Cybersecurity En-Fr.pdf"),
+  E("Decision Systems",2024,1,["En","Fr"],"Decision Systems En-Fr.pdf"),E("JS-SQL-PHP",2024,1,["En","Fr"],"JS-SQL-PHP En-Fr.pdf"),
+  E("Law",2024,1,["Ar"],"Law Ar.pdf"),E("Smartphone Apps",2024,1,["En","Fr"],"Smartphone Apps En-Fr.pdf"),
+  E("UML",2024,1,["En","Fr"],"UML En-Fr.pdf"),E("XML",2024,1,["En","Fr"],"XML En-Fr.pdf"),
+];
+
+// ════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════
+const state = {
+  search: "", lang: localStorage.getItem("lt-lang") || "en",
+  theme: localStorage.getItem("lt-theme") || "dark", view: "grid",
+  filters: { year: [], subject: [], lang: [] },
+};
+
+const allYears = [...new Set(EXAMS_DATA.map(e => e.year))].sort((a, b) => b - a);
+const allSubjects = [...new Set(EXAMS_DATA.map(e => e.subject))].sort();
+const allExamLangs = [...new Set(EXAMS_DATA.flatMap(e => e.languages))].sort();
+const yearGroups = {};
+allYears.forEach(y => {
+  const s = EXAMS_DATA.filter(e => e.year === y);
+  yearGroups[y] = { sessions: [...new Set(s.map(e => e.session))].sort(), count: s.length };
+});
+
+// ════════════════════════════════════════════════
+//  DOM
+// ════════════════════════════════════════════════
+const $ = id => document.getElementById(id);
+const searchInput = $("search-input");
+const examsContainer = $("exams-container");
+const resultsCount = $("results-count");
+const activeFiltersEl = $("active-filters");
+
+// ════════════════════════════════════════════════
+//  i18n ENGINE
+// ════════════════════════════════════════════════
+function t(key) { return I18N[state.lang]?.[key] || I18N.en[key] || key; }
+function subjectName(key) { return SUBJECT_I18N[key]?.[state.lang] || SUBJECT_I18N[key]?.en || key; }
+
+function applyI18n() {
+  const lang = state.lang;
+  const isRtl = lang === "ar";
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isRtl ? "rtl" : "ltr";
+  if (isRtl) document.body.style.fontFamily = "var(--font-ar)";
+  else document.body.style.fontFamily = "var(--font-sans)";
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.innerHTML = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
+  });
+  $("lang-label").textContent = lang.toUpperCase();
+  document.querySelectorAll(".lang-option").forEach(o => o.classList.toggle("active", o.dataset.lang === lang));
+
+  // Re-populate filter dropdowns with translated labels
+  populateDropdown("filter-subject-dropdown", allSubjects, "subject", s => subjectName(s));
+  render();
+  renderSubjects();
+}
+
+// ════════════════════════════════════════════════
+//  THEME
+// ════════════════════════════════════════════════
+function applyTheme() {
+  document.documentElement.dataset.theme = state.theme;
+  const isDark = state.theme === "dark";
+  $("icon-moon").style.display = isDark ? "block" : "none";
+  $("icon-sun").style.display = isDark ? "none" : "block";
+}
+
+$("theme-toggle").addEventListener("click", () => {
+  state.theme = state.theme === "dark" ? "light" : "dark";
+  localStorage.setItem("lt-theme", state.theme);
+  applyTheme();
+});
+
+// ════════════════════════════════════════════════
+//  LANGUAGE SELECTOR
+// ════════════════════════════════════════════════
+$("lang-toggle-btn").addEventListener("click", e => {
+  e.stopPropagation();
+  $("lang-dropdown").classList.toggle("open");
+});
+document.querySelectorAll(".lang-option").forEach(opt => {
+  opt.addEventListener("click", () => {
+    state.lang = opt.dataset.lang;
+    localStorage.setItem("lt-lang", state.lang);
+    $("lang-dropdown").classList.remove("open");
+    applyI18n();
+  });
+});
+
+// ════════════════════════════════════════════════
+//  FILTERING
+// ════════════════════════════════════════════════
+function getFiltered() {
+  return EXAMS_DATA.filter(exam => {
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      const hay = [exam.subject, subjectName(exam.subject), exam.year, `${exam.year}-${exam.session}`,
+        ...exam.languages, exam.filename].join(" ").toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    if (state.filters.year.length && !state.filters.year.includes(exam.year)) return false;
+    if (state.filters.subject.length && !state.filters.subject.includes(exam.subject)) return false;
+    if (state.filters.lang.length && !exam.languages.some(l => state.filters.lang.includes(l))) return false;
+    return true;
+  });
+}
+
+function getPath(exam) { return `${exam.year}-${exam.session}/${exam.filename}`; }
+function langBadges(langs) { return langs.map(l => `<span class="lang-badge">${l}</span>`).join(""); }
+
+const svgCal = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
+const svgDl = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+const svgEye = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+function escapeAttr(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;'); }
+
+function renderGrid(exams) {
+  const groups = {};
+  exams.forEach(e => { const k = `${e.year}-${e.session}`; (groups[k] = groups[k] || []).push(e); });
+  const keys = Object.keys(groups).sort((a, b) => { const [ay,as]=a.split("-").map(Number); const [by,bs]=b.split("-").map(Number); return by-ay||bs-as; });
+  if (!keys.length) return renderEmpty();
+  let h = "";
+  keys.forEach(k => {
+    const [y, s] = k.split("-"); const items = groups[k];
+    h += `<div class="year-group"><div class="year-group-header"><h2>${y} ${t("session")} ${s}</h2><span class="year-group-count">${items.length} ${t("files")}</span><div class="year-group-line"></div></div><div class="exams-grid">`;
+    items.forEach(ex => {
+      const p = encodeURI(getPath(ex)), nm = escapeAttr(subjectName(ex.subject) + ' - ' + ex.year + ' S' + ex.session);
+      h += `<div class="exam-card" tabindex="0" role="button" data-pdf-path="${p}" data-pdf-title="${nm}">
+        <div class="card-header"><div class="card-subject">${subjectName(ex.subject)}</div></div>
+        <div class="card-meta"><div class="card-meta-item">${svgCal} <span class="font-mono">${ex.year} S${ex.session}</span></div><div class="card-languages">${langBadges(ex.languages)}</div></div>
+        <div class="card-actions"><span class="card-view">${svgEye} <span>${t("viewPdf")}</span></span><a href="${p}" class="card-download" download target="_blank" onclick="event.stopPropagation()" title="${t("downloadPdf")}">${svgDl}</a></div></div>`;
+    });
+    h += `</div></div>`;
+  });
+  examsContainer.innerHTML = h;
+}
+
+function renderList(exams) {
+  if (!exams.length) return renderEmpty();
+  const groups = {};
+  exams.forEach(e => { const k = `${e.year}-${e.session}`; (groups[k] = groups[k] || []).push(e); });
+  const keys = Object.keys(groups).sort((a, b) => { const [ay,as]=a.split("-").map(Number); const [by,bs]=b.split("-").map(Number); return by-ay||bs-as; });
+  let h = "";
+  keys.forEach(k => {
+    const [y, s] = k.split("-"); const items = groups[k];
+    h += `<div class="year-group"><div class="year-group-header"><h2>${y} ${t("session")} ${s}</h2><span class="year-group-count">${items.length} ${t("files")}</span><div class="year-group-line"></div></div>`;
+    h += `<div class="exams-list"><div class="list-header"><span>${t("listSubject")}</span><span>${t("listSession")}</span><span>${t("listLang")}</span><span>${t("listDl")}</span></div>`;
+    items.forEach(ex => {
+      const p = encodeURI(getPath(ex)), nm = escapeAttr(subjectName(ex.subject) + ' - ' + ex.year + ' S' + ex.session);
+      h += `<div class="exam-row" tabindex="0" role="button" data-pdf-path="${p}" data-pdf-title="${nm}">
+        <span class="row-subject">${subjectName(ex.subject)}</span>
+        <span class="row-session font-mono">${ex.year} S${ex.session}</span>
+        <span class="row-languages">${langBadges(ex.languages)}</span>
+        <span class="row-actions"><span class="row-view-btn" title="${t("viewPdf")}">${svgEye}</span><a href="${p}" class="row-dl-btn" download target="_blank" onclick="event.stopPropagation()" title="${t("downloadPdf")}">${svgDl}</a></span></div>`;
+    });
+    h += `</div></div>`;
+  });
+  examsContainer.innerHTML = h;
+}
+
+function renderEmpty() {
+  examsContainer.innerHTML = `<div class="empty-state">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    <h3>${t("emptyTitle")}</h3><p>${t("emptySub")}</p></div>`;
+}
+
+function render() {
+  const filtered = getFiltered();
+  resultsCount.innerHTML = `${t("showing")} <strong>${filtered.length}</strong> ${t("of")} ${EXAMS_DATA.length} ${t("exams")}`;
+  state.view === "grid" ? renderGrid(filtered) : renderList(filtered);
+  renderActiveFilters();
+  ["year", "subject", "lang"].forEach(k => {
+    $(`filter-${k}-btn`).classList.toggle("active", state.filters[k].length > 0);
+  });
+}
+
+// ════════════════════════════════════════════════
+//  FILTER DROPDOWNS
+// ════════════════════════════════════════════════
+function populateDropdown(id, items, filterKey, labelFn) {
+  const dd = $(id); if (!dd) return;
+  dd.innerHTML = items.map(item => {
+    const sel = state.filters[filterKey].includes(item);
+    return `<button class="filter-option ${sel?"selected":""}" data-value="${item}" data-filter="${filterKey}">
+      <div class="filter-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      ${labelFn ? labelFn(item) : item}</button>`;
+  }).join("");
+  dd.querySelectorAll(".filter-option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      const val = filterKey === "year" ? parseInt(opt.dataset.value) : opt.dataset.value;
+      toggleFilter(filterKey, val);
+      opt.classList.toggle("selected");
+    });
+  });
+}
+
+function toggleFilter(key, value) {
+  const i = state.filters[key].indexOf(value);
+  i === -1 ? state.filters[key].push(value) : state.filters[key].splice(i, 1);
+  render();
+}
+
+function renderActiveFilters() {
+  const tags = [];
+  Object.keys(state.filters).forEach(k => state.filters[k].forEach(v => {
+    const label = k === "subject" ? subjectName(v) : v;
+    tags.push({ k, v, label });
+  }));
+  if (!tags.length) { activeFiltersEl.innerHTML = ""; return; }
+  activeFiltersEl.innerHTML = tags.map(t =>
+    `<span class="active-tag"><span class="font-mono">${t.label}</span><button onclick="removeFilter('${t.k}','${t.v}')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span>`
+  ).join("") + `<button class="clear-all" onclick="clearAllFilters()">${t("clearAll")}</button>`;
+}
+
+window.removeFilter = (k, v) => {
+  const parsed = k === "year" ? parseInt(v) : v;
+  const i = state.filters[k].indexOf(parsed); if (i !== -1) state.filters[k].splice(i, 1);
+  const dd = $(`filter-${k}-dropdown`);
+  if (dd) dd.querySelectorAll(".filter-option").forEach(o => { if (o.dataset.value === v) o.classList.remove("selected"); });
+  render();
+};
+window.clearAllFilters = () => {
+  Object.keys(state.filters).forEach(k => state.filters[k] = []);
+  document.querySelectorAll(".filter-option.selected").forEach(o => o.classList.remove("selected"));
+  render();
+};
+
+// Dropdown toggle
+["year","subject","lang"].forEach(key => {
+  const btn = $(`filter-${key}-btn`), dd = $(`filter-${key}-dropdown`);
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    document.querySelectorAll(".filter-dropdown.open").forEach(d => { if (d !== dd) d.classList.remove("open"); });
+    dd.classList.toggle("open");
+  });
+});
+document.addEventListener("click", () => {
+  document.querySelectorAll(".filter-dropdown.open, .lang-dropdown.open").forEach(d => d.classList.remove("open"));
+});
+document.querySelectorAll(".filter-dropdown, .lang-dropdown").forEach(d => d.addEventListener("click", e => e.stopPropagation()));
+
+// View toggle
+$("view-grid-btn").addEventListener("click", () => { state.view="grid"; $("view-grid-btn").classList.add("active"); $("view-list-btn").classList.remove("active"); render(); });
+$("view-list-btn").addEventListener("click", () => { state.view="list"; $("view-list-btn").classList.add("active"); $("view-grid-btn").classList.remove("active"); render(); });
+
+// Search
+let st; searchInput.addEventListener("input", () => { clearTimeout(st); st = setTimeout(() => { state.search = searchInput.value.trim(); render(); }, 150); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
+  if (e.key === "Escape" && document.activeElement === searchInput) { searchInput.blur(); if (searchInput.value) { searchInput.value = ""; state.search = ""; render(); } }
+});
+
+// ════════════════════════════════════════════════
+//  PDF VIEWER
+// ════════════════════════════════════════════════
+function openViewer(path, title) {
+  const overlay = $("pdf-viewer-overlay");
+  $("pdf-viewer-title").textContent = title || path;
+  $("pdf-download-btn").href = path;
+  $("pdf-open-tab-btn").href = path;
+  $("pdf-viewer-iframe").src = path;
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeViewer() {
+  $("pdf-viewer-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+  setTimeout(() => { $("pdf-viewer-iframe").src = ""; }, 300);
+}
+$("pdf-close-btn").addEventListener("click", closeViewer);
+$("pdf-viewer-overlay").addEventListener("click", e => {
+  if (e.target === $("pdf-viewer-overlay")) closeViewer();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && $("pdf-viewer-overlay").classList.contains("open")) { e.preventDefault(); closeViewer(); }
+});
+examsContainer.addEventListener("click", e => {
+  const card = e.target.closest("[data-pdf-path]");
+  if (!card || e.target.closest(".card-download, .row-dl-btn")) return;
+  openViewer(card.dataset.pdfPath, card.dataset.pdfTitle);
+});
+examsContainer.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    const card = e.target.closest("[data-pdf-path]");
+    if (card && !e.target.closest(".card-download, .row-dl-btn")) { e.preventDefault(); openViewer(card.dataset.pdfPath, card.dataset.pdfTitle); }
+  }
+});
+
+// ════════════════════════════════════════════════
+//  SUBJECTS SECTION
+// ════════════════════════════════════════════════
+function renderSubjects() {
+  const grid = $("subject-grid");
+  grid.innerHTML = allSubjects.map(key =>
+    `<div class="subject-card ${state.filters.subject.includes(key)?"selected":""}" data-subject="${key}" tabindex="0">
+      <div class="subject-name">${subjectName(key)}</div>
+      <div class="subject-years font-mono">${SUBJECT_YEARS[key] || ""}</div>
+    </div>`
+  ).join("");
+  grid.querySelectorAll(".subject-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const s = card.dataset.subject;
+      state.filters.subject = state.filters.subject.includes(s) ? [] : [s];
+      const dd = $("filter-subject-dropdown");
+      dd.querySelectorAll(".filter-option").forEach(o => o.classList.toggle("selected", state.filters.subject.includes(o.dataset.value)));
+      grid.querySelectorAll(".subject-card").forEach(c => c.classList.toggle("selected", state.filters.subject.includes(c.dataset.subject)));
+      render();
+      $("search-section")?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+// ════════════════════════════════════════════════
+//  TIMELINE
+// ════════════════════════════════════════════════
+function renderTimeline() {
+  const grid = $("timeline-grid");
+  grid.innerHTML = allYears.map(y => {
+    const info = yearGroups[y]; const sl = info.sessions.map(s => `S${s}`).join(", ");
+    return `<div class="timeline-card" data-year="${y}" tabindex="0">
+      <div class="timeline-year font-mono">${y}</div><div class="timeline-sessions">${sl}</div>
+      <div class="timeline-file-count font-mono">${info.count} ${t("files")}</div></div>`;
+  }).join("");
+  grid.querySelectorAll(".timeline-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const y = parseInt(card.dataset.year);
+      state.filters.year = state.filters.year.includes(y) ? [] : [y];
+      const dd = $("filter-year-dropdown");
+      dd.querySelectorAll(".filter-option").forEach(o => o.classList.toggle("selected", state.filters.year.includes(parseInt(o.dataset.value))));
+      grid.querySelectorAll(".timeline-card").forEach(c => c.classList.toggle("selected", state.filters.year.includes(parseInt(c.dataset.year))));
+      render();
+      $("search-section")?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+// Back to top
+window.addEventListener("scroll", () => $("back-to-top").classList.toggle("visible", window.scrollY > 400), { passive: true });
+$("back-to-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+// ════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════
+applyTheme();
+populateDropdown("filter-year-dropdown", allYears, "year", y => y);
+populateDropdown("filter-subject-dropdown", allSubjects, "subject", s => subjectName(s));
+populateDropdown("filter-lang-dropdown", allExamLangs, "lang");
+renderTimeline();
+applyI18n();
+</script>
+</body>
+</html>
